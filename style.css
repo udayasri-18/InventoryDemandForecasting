@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: beige;
+}
+h1 {
+    text-align: center;
+}
+h2{
+    margin-left: 20px;
+}
+form {
+    margin: 20px;
+}
+input {
+    display: block;
+    margin: 10px 0;
+    padding: 18px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+}
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+#main{
+    display: flex;
+}
+#add{
+    width: 35%;
+    margin: 10px;
+}
+#add1{
+    background-color: rgb(129, 209, 212);
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+#add2{
+    padding: 10px;
+    border-radius: 10px;
+}
+#list{
+    width: 60%;
+}
+#moviesTableBody{
+    background-color: rgb(139, 211, 213);
+    margin: 10px;
+}
+table{
+    border-color: black;
+    border-style: solid;
+}
+th, td {
+    border:1px solid black;
+    text-align: left;
+}
+#addmoviebtn{
+    border-radius: 10px;
+    background-color: beige ;
+}
+

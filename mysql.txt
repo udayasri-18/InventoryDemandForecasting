@@ -1,0 +1,131 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\udayasri> mysql -u root -p
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 28
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database movies_management;
+Query OK, 1 row affected (0.05 sec)
+
+mysql> create table movies(id AUTO_INCREMENT NOT NULL,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARCHAR(20),release_year INT ,duration
+_minutes INT,rating INT,poster_image  VARCHAR(200),box_office_total VARCHAR(200));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AUTO_INCREMENT NOT NULL,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NUL' at line 1
+mysql> create table movies(id INT AUTO_INCREMENT NOT NULL,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARCHAR(20),release_year INT ,duration_minutes INT,rating INT,poster_image  VARCHAR(200),box_office_total VARCHAR(200));
+ERROR 1046 (3D000): No database selected
+mysql> create table movies(id INT AUTO_INCREMENT NOT NULL,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARCHAR(20),release_year INT ,duration_minutes INT,rating INT,poster_image  VARCHAR(200),box_office_total VARCHAR(200));
+ERROR 1046 (3D000): No database selected
+mysql> use movies_management;
+Database changed
+mysql> create table movies(id INT AUTO_INCREMENT NOT NULL,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARCHAR(20),release_year INT ,duration_minutes INT,rating INT,poster_image  VARCHAR(200),box_office_total VARCHAR(200));
+ERROR 1075 (42000): Incorrect table definition; there can be only one auto column and it must be defined as a key
+mysql> create table movies(id INT AUTO_INCREMENT PRIMARY_KEY,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARCHAR(20),release_year INT ,duration_minutes INT,rating INT,poster_image  VARCHAR(200),box_office_total VARCHAR(200));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMARY_KEY,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARC' at line 1
+mysql> create table movies(id INT AUTO_INCREMENT PRIMARY KEY,title VARCHAR(100) NOT NULL,director VARCHAR(20) NOT NULL,genre VARCHAR(20),release_year INT ,d
+uration_minutes INT,rating INT,poster_image  VARCHAR(200),box_office_total VARCHAR(200));
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> INSERT INTO movies VALUES(null,"RRR","Rajamouli","Action",2022,182,9,"wdffwer","12000 cr");
+Query OK, 1 row affected (0.27 sec)
+
+mysql> INSERT INTO movies VALUES(null,"Kalki","NagaAswin","Mythology",2024,196,9.5,"kfjwjhbvfer","10000 cr");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  1 | RRR   | Rajamouli | Action    |         2022 |              182 |      9 | wdffwer      | 12000 cr         |
+|  2 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  1 | RRR   | Rajamouli | Action    |         2022 |              182 |      9 | wdffwer      | 12000 cr         |
+|  2 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+2 rows in set (0.02 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  2 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  2 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
+|  5 | rrr   | rajamouli | action    |         2020 |              234 |      3 | fvdc         | ds               |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from movies;
++----+-------+----------+--------+--------------+------------------+--------+--------------+------------------+
+| id | title | director | genre  | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+----------+--------+--------------+------------------+--------+--------------+------------------+
+|  6 | ram   | ramesh   | comedy |      2002145 |              145 |      4 | fse          | ds               |
++----+-------+----------+--------+--------------+------------------+--------+--------------+------------------+
+1 row in set (0.00 sec)
+
+mysql> select *from movies;
+Empty set (0.00 sec)
+
+mysql> INSERT INTO movies VALUES(null,"RRR","Rajamouli","Action",2022,182,9,"wdffwer","12000 cr");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO movies VALUES(null,"Kalki","NagaAswin","Mythology",2024,196,9.5,"kfjwjhbvfer","10000 cr");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  7 | RRR   | Rajamouli | Action    |         2022 |              182 |      9 | wdffwer      | 12000 cr         |
+|  8 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  7 | RRR   | Rajamouli | Action    |         2022 |              182 |      9 | wdffwer      | 12000 cr         |
+|  8 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO movies VALUES(null,"Kalki","NagaAswin","Mythology",2024,196,9.5,"kfjwjhbvfer","10000 cr");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO movies VALUES(null,"RRR","Rajamouli","Action",2022,182,9,"wdffwer","12000 cr");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select *from movies;
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+| id | title | director  | genre     | release_year | duration_minutes | rating | poster_image | box_office_total |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+|  9 | Kalki | NagaAswin | Mythology |         2024 |              196 |     10 | kfjwjhbvfer  | 10000 cr         |
+| 10 | RRR   | Rajamouli | Action    |         2022 |              182 |      9 | wdffwer      | 12000 cr         |
++----+-------+-----------+-----------+--------------+------------------+--------+--------------+------------------+
+2 rows in set (0.00 sec)
+
+mysql>
